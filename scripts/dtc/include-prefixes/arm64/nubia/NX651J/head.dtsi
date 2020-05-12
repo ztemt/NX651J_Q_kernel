@@ -1,0 +1,16 @@
+/*
+ * nubia overwrite dts
+ */
+
+#include "tp.dtsi"
+#include "sensors.dtsi"
+#include "leds.dtsi"
+#include "haptics.dtsi"
+#include "aw22xxx.dtsi"
+#include "nfc.dtsi"
+#include "touchkey.dtsi"
+#include "finger.dtsi"
+#include "usb.dtsi"
+#include "neo-power.dtsi"
+#include "others.dtsi"
+/*#include "cc_control.dtsi"*/

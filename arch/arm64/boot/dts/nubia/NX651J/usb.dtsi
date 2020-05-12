@@ -1,0 +1,38 @@
+/*
+ * nubia overrides dts
+ */
+
+/*
+&pm7250b_pdphy {
+        vdd-pdphy-supply = <&pm8150_l2>;
+        vbus-supply = <&smb5_vbus>;
+        vconn-supply = <&smb5_vconn>;
+};
+*/
+/*use usb2.0*/
+&usb0 {
+	dwc3@a600000 {
+		usb-phy = <&usb2_phy0>, <&usb_nop_phy>;
+		maximum-speed = "high-speed";
+	};
+};
+/*usb2.0 related config*/
+&usb2_phy0 {
+	qcom,param-override-seq = <0x47 0x6c   /*raise disconnect voltage*/
+                                   0xca 0x70  /*pre-ephamic & add dc level*/
+                                   0x27 0x74>; /*reduce raise/fail time*/
+        /*qcom,tune-efuse-correction = <0xffffffff>;
+        qcom,qusb-phy-init-seq = <>;*/         /*eye picture config*/
+};
+
+&usb_qmp_dp_phy {
+	status = "disabled";
+};
+
+/*&sde_dp {
+	status = "disabled";
+}
+
+&mdss_mdp {
+	connectors = <&sde_rscc &sde_wb &sde_dsi>;
+};*/

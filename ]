@@ -1,0 +1,16 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+[filter "lfs"]
+	smudge = git-lfs smudge --skip -- %f
+[remote "sh2020spf101"]
+	url = ssh://xhli4867@172.16.16.25:29418/SH2020SPF101/qcom/kernel/msm-4.19
+	review = 172.16.16.25
+	projectname = qcom/kernel/msm-4.19
+	fetch = +refs/heads/*:refs/remotes/sh2020spf101/*
+[branch "tp"]
+	remote = sh2020spf101
+	merge = refs/heads/SH2020SPF101/master
+[commit]
+	reporoot = ../..
+	template = ../../nubiamini/patches/platform/.git_commit_msg_patch

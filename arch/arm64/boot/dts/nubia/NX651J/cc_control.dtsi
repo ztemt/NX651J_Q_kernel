@@ -1,0 +1,30 @@
+&spmi_bus {
+    qcom,pm7250b@2 {
+        cc_control@1544{
+            reg = <0x1544 0x02>;
+            compatible = "nubia,cc_control";
+            irq-gpio = <&tlmm 3 0x2800>;
+            pinctrl-names = "cc_control_irq";
+            pinctrl-0 = <&cc_control_irq>;
+            status = "okay";
+        };
+	};
+};
+
+&tlmm {
+    cc_control_pinctrl{
+        cc_control_irq: cc_control_irq {
+            mux {
+                pins = "gpio3";
+                function = "gpio";
+            };
+
+            config {
+                pins = "gpio3";
+                drive-strength = <16>;
+                bias-pull-up;
+                input-enable;
+            };
+        };
+    };
+};
